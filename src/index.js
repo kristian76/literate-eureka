@@ -11,3 +11,14 @@ if ('serviceWorker' in navigator) {
             console.log(e)
         })
 }
+
+import {render} from 'react-dom'
+import React from 'react'
+
+const AppShell = (props) => (
+        <div>Hello Kitty</div>
+    )
+
+render(
+    <AppShell />,
+    document.getElementById('root'))
