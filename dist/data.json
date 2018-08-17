@@ -1,0 +1,33 @@
+{
+    "tasks": {
+        "t1": {
+            "name": "Task no 1",
+            "duration": {
+                "from": "",
+                "to": ""
+            },
+            "resources": {
+                "r1": {
+                    "role": "Project Manager"
+                },
+                "r2": {
+                    "role": "Project Member"
+                },
+                "r3": {
+                    "role": "Stakeholder"
+                }
+            }
+        }
+    },
+    "resources": {
+        "r1": {
+            "name": "Batman"
+        },
+        "r2": {
+            "name": "Robin"
+        },
+        "r3": {
+            "name": "Hulk"
+        }
+    }
+}
