@@ -7,5 +7,7 @@ if ('serviceWorker' in navigator) {
         .register('./service-worker.js')
         .then(function() {
             console.log('service worker registered')
+        }).catch(function(e) {
+            console.log(e)
         })
 }
