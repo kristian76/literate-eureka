@@ -13,7 +13,6 @@ const middleware = store => next => action => {
     store.dispatch({ type: "FETCH_RESOURCES" });
   }
   if (action.type === "FETCH_RESOURCES") {
-    console.log(action);
     fetch("/dist/data.json")
       .then(response => response.json())
       .then(response =>

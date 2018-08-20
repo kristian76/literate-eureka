@@ -5,16 +5,27 @@ import Duration from "./duration";
 /**
  * TODO: Tasks to be sorted by resource
  */
-const TaskList = props =>
-  Object.keys(props.tasks).map((key, index) => (
-    <div key={index}>
-      {props.tasks[key].name}
-      <Duration
-        dates={props.tasks[key].duration}
-        progress={props.tasks[key].progress}
-      />
+
+const TaskList = props => {
+  return Object.keys(props.resources).map((key, i) => (
+    <div key={i} className="columns">
+      {filterTaskKeys(props.tasks, key).map((task, j) => (
+        <div key={j} className="column col-xs-8">
+          {props.tasks[task].name}
+          <Duration
+            dates={props.tasks[task].duration}
+            progress={props.tasks[task].progress}
+          />
+        </div>
+      ))}
     </div>
   ));
+};
+
+const filterTaskKeys = (data, res) =>
+  Object.keys(data).filter(
+    key => Object.keys(data[key].resources).includes(res) == true
+  );
 
 const mapState = state => ({
   tasks: state.tasks,

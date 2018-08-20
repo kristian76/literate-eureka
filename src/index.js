@@ -30,8 +30,7 @@ import ResouceList from "./resourcelist";
 const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
   return (
-    <div>
-      <ResouceList />
+    <div className="container grid-lg">
       <TaskList />
     </div>
   );
