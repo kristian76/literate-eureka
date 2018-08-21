@@ -26,14 +26,24 @@ import store from "./store";
  */
 import TaskList from "./tasklist";
 import ResouceList from "./resourcelist";
+import Header from "./header";
+import CalendarView from "./calendarview";
 
 const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
-  return (
-    <div className="container grid-lg">
-      <TaskList />
+  return [
+    <Header key="1" />,
+    <div className="container" key="2">
+      <div className="columns">
+        <div className="column col-4">
+          <ResouceList />
+        </div>
+        <div className="column col-8">
+          <CalendarView />
+        </div>
+      </div>
     </div>
-  );
+  ];
 };
 
 render(
