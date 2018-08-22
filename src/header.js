@@ -1,17 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Header = props => (
-  <header className="navbar">
-    <section className="navbar-section" />
-    <section className="navbar-section">
-      <div className="dropdown">
-        <a href="#" className="btn btn-link dropdown-toggle">
-          View <i className="icon icon-caret" />
-        </a>
-        <ul className="menu" />
-      </div>
-    </section>
-  </header>
-);
+const Header = props => {
+  return (
+    <header className="navbar">
+      <section className="navbar-section" />
+      <section className="navbar-section">
+        <button className="btn btn-success">Add Resource</button>
+        <button className="btn btn-success">Add Task</button>
+      </section>
+    </header>
+  );
+};
 
-export default Header;
+const mapDispatch = dispatch => ({
+  addTask: () =>
+    dispatch({
+      type: "ADD_TASK"
+    })
+});
+
+export default connect(
+  null,
+  mapDispatch
+)(Header);

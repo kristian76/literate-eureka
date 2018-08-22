@@ -28,6 +28,7 @@ import store from "./store";
 import ResouceList from "./resourcelist";
 import Header from "./header";
 import CalendarView from "./calendarview";
+import Modal from "./modal";
 
 const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
@@ -43,7 +44,8 @@ const AppShell = props => {
         </div>
       </div>
     </main>,
-    <footer key="3" />
+    <footer key="3" />,
+    <Modal key="4" />
   ];
 };
 

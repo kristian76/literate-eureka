@@ -1,4 +1,5 @@
 const middleware = store => next => action => {
+  console.log(action);
   if (action.type === "FETCH_TASKS") {
     fetch("/dist/data.json")
       .then(response => response.json())

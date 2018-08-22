@@ -9,7 +9,11 @@ const CalendarView = props => {
   let dates = findStartAndEndDates(props.tasks),
     days = dateRange(dates[0], dates[dates.length - 1]),
     range = days.map((date, i) => (
-      <div key={i} className="column col-2" style={{ height: 45 }}>
+      <div
+        key={i}
+        className={`column col-2 ${isWeekend(date) ? "weekend" : "weekday"}`}
+        style={{ height: 45 }}
+      >
         {weekDays[days[i].getDay()]}
         <div className="hide-xs">
           <small>{dateFormat(days[i])}</small>
