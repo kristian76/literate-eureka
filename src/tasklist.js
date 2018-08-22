@@ -1,3 +1,6 @@
+/**
+ * Renders a list of tasks
+ */
 import React from "react";
 import { connect } from "react-redux";
 
@@ -22,26 +25,30 @@ const TaskList = props => {
             marginLeft: `calc(16.66666667% * ${duration(
               props.startDate,
               tasks[j].duration.from
-            )})`
+            )})`,
+            height: "120px",
+            overflow: "hidden"
           }}
         >
           <button className="btn btn-link">{tasks[j].name}</button>
           <Duration dates={tasks[j].duration} />
-          <Assignees data={listAssignees(tasks[j], props.resources)} />
           <Progress data={tasks[j].progress} />
+          <Assignees data={listAssignees(tasks[j], props.resources)} />
         </div>
       ))}
     </div>
   ));
 };
-
+/**
+ * Tasks are sorted by start date
+ */
 const sortTasks = tasks => {
   let taskList = [];
-
+  // Normalize the structure for sorting
   Object.keys(tasks).forEach(key => {
     taskList.push(tasks[key]);
   });
-
+  // Sort tasks based on duration from
   taskList.sort((a, b) => {
     let aD = new Date(Date.parse(a.duration.from)).getTime(),
       bD = new Date(Date.parse(b.duration.from)).getTime();

@@ -43,7 +43,7 @@ const AppShell = props => {
         </div>
       </div>
     </main>,
-    <footer />
+    <footer key="3" />
   ];
 };
 

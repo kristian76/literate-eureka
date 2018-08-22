@@ -28,7 +28,7 @@ self.addEventListener('activate', function(e) {
         })
     )
 })
-
+/*
 self.addEventListener('fetch', function(e) {
     // console.log('service worker fetching')
 
@@ -38,3 +38,4 @@ self.addEventListener('fetch', function(e) {
         })
     )
 })
+*/

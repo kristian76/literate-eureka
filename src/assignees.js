@@ -1,7 +1,7 @@
 import React from "react";
 
 const Assignees = props => (
-  <div>
+  <div className="hide-xs">
     <small>{flattenList(props.data)}</small>
   </div>
 );

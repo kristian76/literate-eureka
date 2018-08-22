@@ -9,10 +9,11 @@ const CalendarView = props => {
   let dates = findStartAndEndDates(props.tasks),
     days = dateRange(dates[0], dates[dates.length - 1]),
     range = days.map((date, i) => (
-      <div key={i} className="column col-2">
+      <div key={i} className="column col-2" style={{ height: 45 }}>
         {weekDays[days[i].getDay()]}
-        <br />
-        {`${days[i].getDate()}/${days[i].getMonth()}`}
+        <div className="hide-xs">
+          <small>{dateFormat(days[i])}</small>
+        </div>
       </div>
     ));
 
@@ -27,6 +28,12 @@ const CalendarView = props => {
     </div>
   );
 };
+
+const dateFormat = date =>
+  new Date(Date.parse(date)).toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "2-digit"
+  });
 
 Date.prototype.addDays = function(days) {
   let date = new Date(this.valueOf());

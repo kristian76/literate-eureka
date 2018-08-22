@@ -7,9 +7,7 @@ const AvatarTile = props => (
     </div>
     <div className="tile-content">
       <div className="tile-title">{props.data.name}</div>
-      <div className="tile-subtitle text-gray">
-        {props.taskKeys.length} tasks
-      </div>
+      <div className="tile-subtitle text-gray">{props.taskCount} tasks</div>
     </div>
   </div>
 );
