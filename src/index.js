@@ -24,7 +24,7 @@ import store from "./store";
 /**
  * Import child components
  */
-import TaskList from "./tasklist";
+
 import ResouceList from "./resourcelist";
 import Header from "./header";
 import CalendarView from "./calendarview";

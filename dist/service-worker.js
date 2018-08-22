@@ -2,8 +2,7 @@ var cacheName = 'super-duper-nice-app'
 var filesToCache = [
         'https://unpkg.com/spectre.css/dist/spectre.min.css',
         'https://unpkg.com/spectre.css/dist/spectre-exp.min.css',
-        'https://unpkg.com/spectre.css/dist/spectre-icons.min.css',
-        'data.json'
+        'https://unpkg.com/spectre.css/dist/spectre-icons.min.css'
     ]
 
 self.addEventListener('install', function (e) {

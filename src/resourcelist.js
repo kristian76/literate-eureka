@@ -9,10 +9,7 @@ const ResouceList = props => {
       <div className="column col-12">res</div>
       <div className="column col-12">
         {Object.keys(props.resources).map((key, index) => (
-          <div
-            key={index}
-            style={{ height: countTasks(props.tasks, key).length * 64 }}
-          >
+          <div key={index}>
             <AvatarTile
               data={props.resources[key]}
               taskKeys={countTasks(props.tasks, key)}

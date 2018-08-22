@@ -1,31 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import TaskList from "./tasklist"
+import TaskList from "./tasklist";
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
+// TODO: Add color to weekends
 const CalendarView = props => {
   let dates = findStartAndEndDates(props.tasks),
     days = dateRange(dates[0], dates[dates.length - 1]),
-    range = days.map(
-      (date, i) =>
-        isWeekend(date) ? (
-          ""
-        ) : (
-          <div key={i} className="column col-1">
-            {weekDays[days[i].getDay()]}
-          </div>
-        )
-    );
+    range = days.map((date, i) => (
+      <div key={i} className="column col-2">
+        {weekDays[days[i].getDay()]}
+        <br />
+        {`${days[i].getDate()}/${days[i].getMonth()}`}
+      </div>
+    ));
 
   return (
-    <div className="columns">
+    <div className="columns col-gapless">
       <div className="column col-12">
-        <div className="columns">{range}</div>
+        <div className="columns col-gapless">{range}</div>
       </div>
       <div className="column col-12">
-        <TaskList />
+        <TaskList startDate={dates[0]} />
       </div>
     </div>
   );
@@ -54,28 +51,6 @@ const dateRange = (startDate, endDate) => {
 };
 
 const isWeekend = date => [0, 6].includes(date.getDay());
-
-const sortedTasks = tasks => {
-  let taskList = [];
-
-  Object.keys(tasks).forEach(key => {
-    taskList.push(tasks[key]);
-  });
-
-  taskList.sort((a, b) => {
-    let aD = new Date(Date.parse(a.duration.from)).getTime(),
-      bD = new Date(Date.parse(b.duration.from)).getTime();
-    if (aD < bD) {
-      return -1;
-    }
-    if (aD > bD) {
-      return 1;
-    }
-    return 0;
-  });
-
-  return taskList;
-};
 
 const findStartAndEndDates = tasks => {
   let dates = [];

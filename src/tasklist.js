@@ -1,33 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import Duration from "./duration";
 /**
  * TODO: Tasks to be sorted by resource
  */
-
 const TaskList = props => {
   let tasks = sortTasks(props.tasks);
 
-  return (
-    <div className="columns">
-      <div className="column col-12">
-        {Object.keys(props.resources).map((key, i) => (
-          <div key={i} className="columns">
-            {filterTaskKeys(tasks, key).map((task, j) => (
-              <div key={j} className="column col-12">
-                {props.tasks[task].name}
-                <Duration
-                  dates={props.tasks[task].duration}
-                  progress={props.tasks[task].progress}
-                />
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+  return Object.keys(props.resources).map((key, i) => (
+    <div className="columns col-gapless" key={i}>
+      {filterTaskKeys(tasks, key).map(j => (
+        <div
+          key={j}
+          className={`column col-${duration(
+            tasks[j].duration.from,
+            tasks[j].duration.to
+          ) * 2}`}
+          style={{
+            backgroundColor: tasks[j].color,
+            marginLeft: `calc(16.66666667% * ${duration(
+              props.startDate,
+              tasks[j].duration.from
+            )})`
+          }}
+        >
+          {tasks[j].name} duration{" "}
+          {duration(tasks[j].duration.from, tasks[j].duration.to)} from{" "}
+          {tasks[j].duration.from} to {tasks[j].duration.to}
+        </div>
+      ))}
     </div>
-  );
+  ));
 };
 /**
  * TODO: Implement sorting based on duration
@@ -52,6 +54,16 @@ const sortTasks = tasks => {
   });
 
   return taskList;
+};
+
+const duration = (fd, ed) => {
+  let oneDay = 1000 * 60 * 60 * 24;
+  let t1 = new Date(Date.parse(fd)).getTime(),
+    t2 = new Date(Date.parse(ed)).getTime();
+
+  console.log(fd, ed);
+  let mSecDiff = Math.abs(t1 - t2);
+  return Math.round(mSecDiff / oneDay);
 };
 
 const filterTaskKeys = (data, res) =>
