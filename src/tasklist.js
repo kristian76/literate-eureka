@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-/**
- * TODO: Tasks to be sorted by resource
- */
+
+import Duration from "./duration";
+import Assignees from "./assignees";
+import Progress from "./progress";
+
 const TaskList = props => {
   let tasks = sortTasks(props.tasks);
 
@@ -23,17 +25,16 @@ const TaskList = props => {
             )})`
           }}
         >
-          {tasks[j].name} duration{" "}
-          {duration(tasks[j].duration.from, tasks[j].duration.to)} from{" "}
-          {tasks[j].duration.from} to {tasks[j].duration.to}
+          <button className="btn btn-link">{tasks[j].name}</button>
+          <Duration dates={tasks[j].duration} />
+          <Assignees data={listAssignees(tasks[j], props.resources)} />
+          <Progress data={tasks[j].progress} />
         </div>
       ))}
     </div>
   ));
 };
-/**
- * TODO: Implement sorting based on duration
- */
+
 const sortTasks = tasks => {
   let taskList = [];
 
@@ -61,7 +62,6 @@ const duration = (fd, ed) => {
   let t1 = new Date(Date.parse(fd)).getTime(),
     t2 = new Date(Date.parse(ed)).getTime();
 
-  console.log(fd, ed);
   let mSecDiff = Math.abs(t1 - t2);
   return Math.round(mSecDiff / oneDay);
 };
@@ -70,6 +70,15 @@ const filterTaskKeys = (data, res) =>
   Object.keys(data).filter(
     key => Object.keys(data[key].resources).includes(res) == true
   );
+
+const listAssignees = (task, resources) => {
+  return Object.keys(task.resources).map(key => {
+    return {
+      name: resources[key].name,
+      role: task.resources[key].role
+    };
+  });
+};
 
 const mapState = state => ({
   tasks: state.tasks,

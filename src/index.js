@@ -33,7 +33,7 @@ const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
   return [
     <Header key="1" />,
-    <div className="container" key="2">
+    <main className="container" key="2">
       <div className="columns">
         <div className="column col-4">
           <ResouceList />
@@ -42,7 +42,8 @@ const AppShell = props => {
           <CalendarView />
         </div>
       </div>
-    </div>
+    </main>,
+    <footer />
   ];
 };
 

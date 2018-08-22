@@ -1,15 +1,28 @@
 import React from "react";
 
 const Duration = props => (
-  <div>
-    <div>
-      <span>
-        Duration: {daysBetween(props.dates.from, props.dates.to)} days
-      </span>
+  <div className="tile tile-centered">
+    <div className="tile-icon">
+      <i className="icon icon-time" />
     </div>
-    <meter className="meter" value={props.progress} min="0" max="100" />
+    <div className="tile-content">
+      <div className="tile-title">
+        <small>Duration</small>
+      </div>
+      <div className="tile-subtitle text-gray">
+        <small>
+          {dateFormat(props.dates.from)} - {dateFormat(props.dates.to)}
+        </small>
+      </div>
+    </div>
   </div>
 );
+
+const dateFormat = dateStr =>
+  new Date(Date.parse(dateStr)).toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "2-digit"
+  });
 
 const daysBetween = (fd, ed) => {
   let oneDay = 1000 * 60 * 60 * 24;
