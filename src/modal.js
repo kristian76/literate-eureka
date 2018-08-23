@@ -20,7 +20,10 @@ class Modal extends React.Component {
   closeModal(e) {
     this.props.dispatch({ type: "CLOSE_MODAL" });
   }
-
+  /**
+   * TODO: Modal content should be changed depending on redux action
+   * a content factory builder could be implemented
+   */
   render() {
     return (
       <div className="modal" id="modal-id" ref={this.modalRef}>

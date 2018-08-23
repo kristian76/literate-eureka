@@ -30,7 +30,7 @@ const TaskList = props => {
             overflow: "hidden"
           }}
         >
-          <button className="btn btn-link">{tasks[j].name}</button>
+          <button className="btn btn-link" onClick={e => props.editTask(e)}>{tasks[j].name}</button>
           <Duration dates={tasks[j].duration} />
           <Progress data={tasks[j].progress} />
           <Assignees data={listAssignees(tasks[j], props.resources)} />
@@ -91,6 +91,13 @@ const mapState = state => ({
   tasks: state.tasks,
   resources: state.resources
 });
+
+const mapDispatch = dispatch => ({
+  editTask: () =>
+    dispatch({
+      type: "OPEN_MODAL"
+    })
+})
 
 export default connect(
   mapState,

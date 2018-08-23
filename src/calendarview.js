@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import TaskList from "./tasklist";
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 // TODO: Add color to weekends
 const CalendarView = props => {
   let dates = findStartAndEndDates(props.tasks),

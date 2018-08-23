@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./helpers"
+
 const Duration = props => (
   <div className="tile tile-centered">
     <div className="tile-icon">
@@ -7,7 +9,7 @@ const Duration = props => (
     </div>
     <div className="tile-content">
       <div className="tile-title">
-        <small>Duration</small>
+        <small>{"duration".t()}</small>
       </div>
       <div className="tile-subtitle text-gray">
         <small>
