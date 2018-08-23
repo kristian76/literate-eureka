@@ -38,7 +38,7 @@ class Modal extends React.Component {
             <div className="modal-title h5">Modal title</div>
           </div>
           <div className="modal-body">
-            <div className="content">modal content</div>
+            <div className="content">{this.props.children}</div>
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
