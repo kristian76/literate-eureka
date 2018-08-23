@@ -10,6 +10,7 @@ class Modal extends React.Component {
     };
 
     this.modalRef = React.createRef();
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentDidUpdate() {
@@ -42,7 +43,7 @@ class Modal extends React.Component {
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
-            <button className="btn btn-link">Cancel</button>
+            <button className="btn btn-link" onClick={this.closeModal}>Cancel</button>
           </div>
         </div>
       </div>
