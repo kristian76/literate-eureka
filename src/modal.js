@@ -6,12 +6,24 @@ class Modal extends React.Component {
     super(props);
 
     this.modalRef = React.createRef();
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.modal === "isOpen") {
+      this.modalRef.current.classList.add("active");
+    } else {
+      this.modalRef.current.classList.remove("active");
+    }
+  }
+
+  closeModal(e) {
+    this.props.dispatch({ type: "CLOSE_MODAL" });
   }
 
   render() {
     return (
       <div className="modal" id="modal-id" ref={this.modalRef}>
-        <a href="#close" className="modal-overlay" aria-label="Close" />
         <div className="modal-container">
           <div className="modal-header">
             <a
@@ -24,7 +36,12 @@ class Modal extends React.Component {
           <div className="modal-body">
             <div className="content">modal content</div>
           </div>
-          <div className="modal-footer" />
+          <div className="modal-footer">
+            <button className="btn btn-primary">Save</button>
+            <button className="btn btn-link" onClick={this.closeModal}>
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -32,7 +49,7 @@ class Modal extends React.Component {
 }
 
 const mapState = state => ({
-  ui: state.ui
+  modal: state.ui.modal
 });
 
 export default connect(
