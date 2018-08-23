@@ -30,7 +30,7 @@ const TaskList = props => {
             overflow: "hidden"
           }}
         >
-          <button className="btn btn-link" onClick={e => props.editTask(e)}>
+          <button className="btn btn-link" onClick={(e) => props.editTask()}>
             {tasks[j].name}
           </button>
           <Duration dates={tasks[j].duration} />
@@ -103,5 +103,5 @@ const mapDispatch = dispatch => ({
 
 export default connect(
   mapState,
-  null
+  mapDispatch
 )(TaskList);

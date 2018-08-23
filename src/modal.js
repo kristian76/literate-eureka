@@ -27,8 +27,7 @@ class Modal extends React.Component {
 
   render() {
     return (
-      <div className="modal" id="modal-id" ref={this.modalRef}>
-        <a href="#close" className="modal-overlay" aria-label="Close" />
+      <div className="modal" ref={this.modalRef}>
         <div className="modal-container">
           <div className="modal-header">
             <a
