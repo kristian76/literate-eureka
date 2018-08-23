@@ -24,14 +24,14 @@ const middleware = store => next => action => {
   }
 
   if (action.type === "ADD_TASK") {
-    store.dispatch({type: "OPEN_MODAL"})
+    store.dispatch({ type: "OPEN_MODAL" });
   }
   if (action.type === "ADD_RESOURCE") {
-    store.dispatch({type: "OPEN_MODAL"})
+    store.dispatch({ type: "OPEN_MODAL" });
   }
   if (action.type === "EDIT_TASK") {
-    store.dispatch({type: "OPEN_MODAL"})
-    console.log(action)
+    store.dispatch({ type: "OPEN_MODAL" });
+    console.log(action);
   }
 
   next(action);

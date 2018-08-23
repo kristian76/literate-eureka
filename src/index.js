@@ -29,8 +29,8 @@ import Header from "./header";
 import CalendarView from "./calendarview";
 import Modal from "./modal";
 
-const TaskForm = props => <div>Tasksform</div>
-const ResourceForm = props => <div>ResourceForm</div>
+const TaskForm = props => <div>Tasksform</div>;
+const ResourceForm = props => <div>ResourceForm</div>;
 
 const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
