@@ -30,7 +30,7 @@ const TaskList = props => {
             overflow: "hidden"
           }}
         >
-          <button className="btn btn-link" onClick={(e) => props.editTask()}>
+          <button className="btn btn-link" onClick={(e) => props.editTask(tasks[j].key)}>
             {tasks[j].name}
           </button>
           <Duration dates={tasks[j].duration} />
@@ -48,7 +48,7 @@ const sortTasks = tasks => {
   let taskList = [];
   // Normalize the structure for sorting
   Object.keys(tasks).forEach(key => {
-    taskList.push(tasks[key]);
+    taskList.push(Object.assign({key: key}, tasks[key]));
   });
   // Sort tasks based on duration from
   taskList.sort((a, b) => {
@@ -95,9 +95,10 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-  editTask: () =>
+  editTask: (key) =>
     dispatch({
-      type: "OPEN_MODAL"
+      type: "EDIT_TASK",
+      taskKey: key
     })
 });
 

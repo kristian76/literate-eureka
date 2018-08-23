@@ -8,7 +8,7 @@ const Header = props => (
     <section className="navbar-section" />
     <section className="navbar-section">
       <button className="btn btn-success" onClick={e => props.addResource()}>
-        {"add_resource".t("en-US")}
+        {"add_resource".t()}
       </button>
       <button className="btn btn-success" onClick={e => props.addTask()}>
         {"add_task".t()}
@@ -20,11 +20,15 @@ const Header = props => (
 const mapDispatch = dispatch => ({
   addTask: () =>
     dispatch({
-      type: "OPEN_MODAL"
+      type: "ADD_TASK"
     }),
   addResource: () =>
     dispatch({
-      type: "OPEN_MODAL"
+      type: "ADD_RESOURCE"
+    }),
+  closeModal: () =>
+    dispatch({
+      type: "CLOSE_MODAL"
     })
 });
 
