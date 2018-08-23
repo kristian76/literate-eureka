@@ -5,8 +5,11 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      active: false
+    };
+
     this.modalRef = React.createRef();
-    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidUpdate() {
@@ -20,13 +23,11 @@ class Modal extends React.Component {
   closeModal(e) {
     this.props.dispatch({ type: "CLOSE_MODAL" });
   }
-  /**
-   * TODO: Modal content should be changed depending on redux action
-   * a content factory builder could be implemented
-   */
+
   render() {
     return (
       <div className="modal" id="modal-id" ref={this.modalRef}>
+        <a href="#close" className="modal-overlay" aria-label="Close" />
         <div className="modal-container">
           <div className="modal-header">
             <a
@@ -41,9 +42,7 @@ class Modal extends React.Component {
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
-            <button className="btn btn-link" onClick={this.closeModal}>
-              Cancel
-            </button>
+            <button className="btn btn-link">Cancel</button>
           </div>
         </div>
       </div>

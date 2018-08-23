@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./helpers"
+import "./helpers";
 
 const Duration = props => (
   <div className="tile tile-centered">

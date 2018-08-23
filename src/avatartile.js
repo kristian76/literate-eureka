@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./helpers"
+import "./helpers";
 
 const AvatarTile = props => (
   <div className="tile tile-centered">
@@ -9,7 +9,9 @@ const AvatarTile = props => (
     </div>
     <div className="tile-content">
       <div className="tile-title">{props.data.name}</div>
-      <div className="tile-subtitle text-gray">{props.taskCount} {"tasks".t()}</div>
+      <div className="tile-subtitle text-gray">
+        {props.taskCount} {"tasks".t()}
+      </div>
     </div>
   </div>
 );
