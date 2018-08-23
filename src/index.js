@@ -24,7 +24,6 @@ import store from "./store";
 /**
  * Import child components
  */
-
 import ResouceList from "./resourcelist";
 import Header from "./header";
 import CalendarView from "./calendarview";

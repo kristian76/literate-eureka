@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+
     this.modalRef = React.createRef();
   }
+
   render() {
     return (
       <div className="modal" id="modal-id" ref={this.modalRef}>
@@ -29,4 +31,11 @@ class Modal extends React.Component {
   }
 }
 
-export default Modal;
+const mapState = state => ({
+  ui: state.ui
+});
+
+export default connect(
+  mapState,
+  null
+)(Modal);
