@@ -101,7 +101,7 @@ const mapDispatch = dispatch => ({
   editTask: key =>
     dispatch({
       type: "EDIT_TASK",
-      taskKey: key
+      key
     })
 });
 

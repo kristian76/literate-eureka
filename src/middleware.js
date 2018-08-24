@@ -31,7 +31,6 @@ const middleware = store => next => action => {
   }
   if (action.type === "EDIT_TASK") {
     store.dispatch({ type: "OPEN_MODAL" });
-    console.log(action);
   }
 
   next(action);

@@ -19,10 +19,15 @@ import reducers from "./reducers";
  */
 import middleware from "./middleware";
 
+const enhancer =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+
 const store = createStore(
   reducers,
   initialState,
-  compose(applyMiddleware(middleware))
+  compose(enhancer(applyMiddleware(middleware)))
 );
 
 export default store;

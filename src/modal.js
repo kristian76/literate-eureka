@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import TaskForm from "./taskform"
+import ResourceForm from "./resourceform"
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +41,9 @@ class Modal extends React.Component {
             <div className="modal-title h5">Modal title</div>
           </div>
           <div className="modal-body">
-            <div className="content">{this.props.children}</div>
+            <div className="content">
+              <TaskForm />
+            </div>
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
@@ -51,9 +56,10 @@ class Modal extends React.Component {
     );
   }
 }
-
+// FIXME: Modal is too generic, should be something else
 const mapState = state => ({
-  modal: state.ui.modal
+  modal: state.ui.modal,
+  tasks: state.tasks
 });
 
 export default connect(

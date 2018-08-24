@@ -29,9 +29,6 @@ import Header from "./header";
 import CalendarView from "./calendarview";
 import Modal from "./modal";
 
-const TaskForm = props => <div>Tasksform</div>;
-const ResourceForm = props => <div>ResourceForm</div>;
-
 const AppShell = props => {
   store.dispatch({ type: "FETCH_TASKS" });
   return [
@@ -47,10 +44,7 @@ const AppShell = props => {
       </div>
     </main>,
     <footer key="3" />,
-    <Modal key="4">
-      <TaskForm />
-      <ResourceForm />
-    </Modal>
+    <Modal key="4" />
   ];
 };
 
