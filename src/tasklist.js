@@ -30,11 +30,7 @@ const TaskList = props => {
             overflow: "hidden"
           }}
         >
-          <button
-            className="btn btn-link"
-          >
-            {tasks[j].name}
-          </button>
+          <button className="btn btn-link">{tasks[j].name}</button>
           <Duration dates={tasks[j].duration} />
           <Progress data={tasks[j].progress} />
           <Assignees data={listAssignees(tasks[j], props.resources)} />

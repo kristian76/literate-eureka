@@ -2,7 +2,7 @@
  * Create app store and apply middleware
  */
 import { createStore, compose, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk"
+import thunkMiddleware from "redux-thunk";
 
 import { tasks, resources } from "./state";
 

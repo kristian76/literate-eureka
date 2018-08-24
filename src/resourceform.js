@@ -1,11 +1,11 @@
-import React, {Component} from "react"
+import React, { Component } from "react";
 
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 
 class ResourceForm extends Component {
-    render () {
-        return <form>Form</form>
-    }
+  render() {
+    return <form>Form</form>;
+  }
 }
 
-export default ResourceForm
+export default ResourceForm;

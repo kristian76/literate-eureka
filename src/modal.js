@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import TaskForm from "./taskform"
-import ResourceForm from "./resourceform"
+import TaskForm from "./taskform";
+import ResourceForm from "./resourceform";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -15,9 +15,7 @@ class Modal extends React.Component {
     this.modalRef = React.createRef();
   }
 
-  componentDidUpdate() {
-    
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
@@ -38,9 +36,7 @@ class Modal extends React.Component {
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
-            <button className="btn btn-link">
-              Cancel
-            </button>
+            <button className="btn btn-link">Cancel</button>
           </div>
         </div>
       </div>
