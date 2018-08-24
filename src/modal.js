@@ -13,7 +13,9 @@ class Modal extends React.Component {
 
   componentDidUpdate() {
     if (this.props.active == true) {
-      this.modalRef.current.classList.add("active")
+      this.modalRef.current.classList.add("active");
+    } else {
+      this.modalRef.current.classList.remove("active");
     }
   }
 
@@ -45,6 +47,6 @@ class Modal extends React.Component {
 }
 
 export default connect(
-  (state) => ({active: state.modal.active, content: state.modal.content}),
+  state => ({ active: state.modal.active, content: state.modal.content }),
   null
 )(Modal);
