@@ -8,14 +8,14 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      active: false
-    };
-
     this.modalRef = React.createRef();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    if (this.props.active == true) {
+      this.modalRef.current.classList.add("active")
+    }
+  }
 
   render() {
     return (
@@ -45,6 +45,6 @@ class Modal extends React.Component {
 }
 
 export default connect(
-  null,
+  (state) => ({active: state.modal.active, content: state.modal.content}),
   null
 )(Modal);
