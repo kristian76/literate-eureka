@@ -2,6 +2,7 @@
  * Create app store and apply middleware
  */
 import { createStore, compose, applyMiddleware } from "redux";
+import thunkMiddleware from "redux-thunk"
 
 import { tasks, resources } from "./state";
 
@@ -26,7 +27,7 @@ const enhancer =
 const store = createStore(
   reducers,
   initialState,
-  compose(enhancer(applyMiddleware(middleware)))
+  compose(enhancer(applyMiddleware(middleware, thunkMiddleware)))
 );
 
 export default store;
