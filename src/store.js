@@ -4,11 +4,12 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 
-import { tasks, resources } from "./state";
+import { tasks, resources, modal } from "./state";
 
 const initialState = {
   tasks,
-  resources
+  resources,
+  modal
 };
 /**
  * Get reducers

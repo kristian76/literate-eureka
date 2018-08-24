@@ -1,4 +1,7 @@
-const resources = (state = [], action) => {
+/**
+ * Resources Reducer
+ */
+const resources = (state = {}, action) => {
   switch (action.type) {
     default:
       return state;

@@ -894,7 +894,43 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _tasks = __webpack_require__(/*! ./tasks */ \"./src/tasks.js\");\n\nvar _tasks2 = _interopRequireDefault(_tasks);\n\nvar _resources = __webpack_require__(/*! ./resources */ \"./src/resources.js\");\n\nvar _resources2 = _interopRequireDefault(_resources);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar appReducers = (0, _redux.combineReducers)({\n  tasks: _tasks2.default,\n  resources: _resources2.default\n});\n\nexports.default = appReducers;\n\n//# sourceURL=webpack:///./src/reducers.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _tasks = __webpack_require__(/*! ./reducers/tasks */ \"./src/reducers/tasks.js\");\n\nvar _tasks2 = _interopRequireDefault(_tasks);\n\nvar _resources = __webpack_require__(/*! ./reducers/resources */ \"./src/reducers/resources.js\");\n\nvar _resources2 = _interopRequireDefault(_resources);\n\nvar _modal = __webpack_require__(/*! ./reducers/modal */ \"./src/reducers/modal.js\");\n\nvar _modal2 = _interopRequireDefault(_modal);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar appReducers = (0, _redux.combineReducers)({\n  tasks: _tasks2.default,\n  resources: _resources2.default,\n  modal: _modal2.default\n});\n\nexports.default = appReducers;\n\n//# sourceURL=webpack:///./src/reducers.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/modal.js":
+/*!*******************************!*\
+  !*** ./src/reducers/modal.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n/**\n * Modal Reducers\n */\nvar modal = function modal() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n    var action = arguments[1];\n\n    switch (action.type) {\n        case \"MODAL_ACTIVE\":\n            return {\n                active: action.active,\n                content: action.content\n            };\n        default:\n            return state;\n    }\n};\n\nexports.default = modal;\n\n//# sourceURL=webpack:///./src/reducers/modal.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/resources.js":
+/*!***********************************!*\
+  !*** ./src/reducers/resources.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n/**\n * Resources Reducer\n */\nvar resources = function resources() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n  var action = arguments[1];\n\n  switch (action.type) {\n    default:\n      return state;\n    case \"RECEIVING_RESOURCES\":\n      return action.resources;\n  }\n};\n\nexports.default = resources;\n\n//# sourceURL=webpack:///./src/reducers/resources.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/tasks.js":
+/*!*******************************!*\
+  !*** ./src/reducers/tasks.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n/**\n * Tasks Reducer\n */\nvar tasks = function tasks() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments[1];\n\n  switch (action.type) {\n    case \"RECEIVING_DATA\":\n      return action.tasks;\n    case \"ADD_TASK\":\n      var _tasks = state,\n          key = \"t\" + nextKey(state);\n      _tasks[key] = { name: \"\", progress: 0, resources: {}, duration: { from: '', to: '' }, color: \"\", editing: true };\n      return _tasks;\n    default:\n      return state;\n  }\n};\n\nvar nextKey = function nextKey(doc) {\n  return parseInt(Object.keys(doc).sort().pop().replace(/[^\\d]/g, '')) + 1;\n};\n\nexports.default = tasks;\n\n//# sourceURL=webpack:///./src/reducers/tasks.js?");
 
 /***/ }),
 
@@ -922,18 +958,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
-/***/ "./src/resources.js":
-/*!**************************!*\
-  !*** ./src/resources.js ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar resources = function resources() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments[1];\n\n  switch (action.type) {\n    default:\n      return state;\n    case \"RECEIVING_RESOURCES\":\n      return action.resources;\n  }\n};\n\nexports.default = resources;\n\n//# sourceURL=webpack:///./src/resources.js?");
-
-/***/ }),
-
 /***/ "./src/state.js":
 /*!**********************!*\
   !*** ./src/state.js ***!
@@ -942,7 +966,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar tasks = exports.tasks = {};\nvar resources = exports.resources = {};\n\n//# sourceURL=webpack:///./src/state.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar tasks = exports.tasks = {};\nvar resources = exports.resources = {};\nvar modal = exports.modal = {\n  active: false,\n  content: null\n};\n\n//# sourceURL=webpack:///./src/state.js?");
 
 /***/ }),
 
@@ -954,7 +978,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; /**\n                                                                                                                                                                                                                                                                               * Create app store and apply middleware\n                                                                                                                                                                                                                                                                               */\n\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"./node_modules/redux-thunk/es/index.js\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _state = __webpack_require__(/*! ./state */ \"./src/state.js\");\n\nvar _reducers = __webpack_require__(/*! ./reducers */ \"./src/reducers.js\");\n\nvar _reducers2 = _interopRequireDefault(_reducers);\n\nvar _middleware = __webpack_require__(/*! ./middleware */ \"./src/middleware.js\");\n\nvar _middleware2 = _interopRequireDefault(_middleware);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initialState = {\n  tasks: _state.tasks,\n  resources: _state.resources\n};\n/**\n * Get reducers\n */\n\n/**\n * Get middleware\n */\n\n\nvar enhancer = (typeof window === \"undefined\" ? \"undefined\" : _typeof(window)) === \"object\" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : _redux.compose;\n\nvar store = (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.compose)(enhancer((0, _redux.applyMiddleware)(_middleware2.default, _reduxThunk2.default))));\n\nexports.default = store;\n\n//# sourceURL=webpack:///./src/store.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; /**\n                                                                                                                                                                                                                                                                               * Create app store and apply middleware\n                                                                                                                                                                                                                                                                               */\n\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"./node_modules/redux-thunk/es/index.js\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _state = __webpack_require__(/*! ./state */ \"./src/state.js\");\n\nvar _reducers = __webpack_require__(/*! ./reducers */ \"./src/reducers.js\");\n\nvar _reducers2 = _interopRequireDefault(_reducers);\n\nvar _middleware = __webpack_require__(/*! ./middleware */ \"./src/middleware.js\");\n\nvar _middleware2 = _interopRequireDefault(_middleware);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initialState = {\n  tasks: _state.tasks,\n  resources: _state.resources,\n  modal: _state.modal\n};\n/**\n * Get reducers\n */\n\n/**\n * Get middleware\n */\n\n\nvar enhancer = (typeof window === \"undefined\" ? \"undefined\" : _typeof(window)) === \"object\" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : _redux.compose;\n\nvar store = (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.compose)(enhancer((0, _redux.applyMiddleware)(_middleware2.default, _reduxThunk2.default))));\n\nexports.default = store;\n\n//# sourceURL=webpack:///./src/store.js?");
 
 /***/ }),
 
@@ -982,18 +1006,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
-/***/ "./src/tasks.js":
-/*!**********************!*\
-  !*** ./src/tasks.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar tasks = function tasks() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments[1];\n\n  switch (action.type) {\n    case \"RECEIVING_DATA\":\n      return action.tasks;\n    default:\n      return state;\n  }\n};\n\nexports.default = tasks;\n\n//# sourceURL=webpack:///./src/tasks.js?");
-
-/***/ }),
-
 /***/ "./src/thunks.js":
 /*!***********************!*\
   !*** ./src/thunks.js ***!
@@ -1002,7 +1014,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar addTask = exports.addTask = function addTask() {\n  console.log(\"adding new task\");\n\n  return function (dispatch) {\n    dispatch({ type: \"FETCH_TASKS\" });\n    return Promise.resolve();\n  };\n};\n\n//# sourceURL=webpack:///./src/thunks.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar addTask = exports.addTask = function addTask() {\n  console.log(\"adding new task\");\n\n  return function (dispatch) {\n    dispatch({ type: \"MODAL_ACTIVE\", active: true, content: \"taskForm\" });\n\n    dispatch({ type: \"ADD_TASK\" });\n  };\n};\n\n//# sourceURL=webpack:///./src/thunks.js?");
 
 /***/ })
 

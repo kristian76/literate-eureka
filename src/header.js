@@ -18,5 +18,5 @@ const Header = props => (
 
 export default connect(
   null,
-  {addTask}
+  { addTask }
 )(Header);
