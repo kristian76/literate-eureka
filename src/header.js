@@ -7,32 +7,17 @@ const Header = props => (
   <header className="navbar">
     <section className="navbar-section" />
     <section className="navbar-section">
-      <button className="btn btn-success" onClick={e => props.addResource()}>
+      <button className="btn btn-success">
         {"add_resource".t()}
       </button>
-      <button className="btn btn-success" onClick={e => props.addTask()}>
+      <button className="btn btn-success">
         {"add_task".t()}
       </button>
     </section>
   </header>
 );
 
-const mapDispatch = dispatch => ({
-  addTask: () =>
-    dispatch({
-      type: "ADD_TASK"
-    }),
-  addResource: () =>
-    dispatch({
-      type: "ADD_RESOURCE"
-    }),
-  closeModal: () =>
-    dispatch({
-      type: "CLOSE_MODAL"
-    })
-});
-
 export default connect(
   null,
-  mapDispatch
+  null
 )(Header);

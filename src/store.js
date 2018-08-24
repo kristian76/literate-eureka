@@ -3,12 +3,11 @@
  */
 import { createStore, compose, applyMiddleware } from "redux";
 
-import { tasks, resources, ui } from "./state";
+import { tasks, resources } from "./state";
 
 const initialState = {
   tasks,
-  resources,
-  ui
+  resources
 };
 /**
  * Get reducers

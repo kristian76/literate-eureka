@@ -13,19 +13,10 @@ class Modal extends React.Component {
     };
 
     this.modalRef = React.createRef();
-    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidUpdate() {
-    if (this.props.modal === "isOpen") {
-      this.modalRef.current.classList.add("active");
-    } else {
-      this.modalRef.current.classList.remove("active");
-    }
-  }
-
-  closeModal(e) {
-    this.props.dispatch({ type: "CLOSE_MODAL" });
+    
   }
 
   render() {
@@ -47,7 +38,7 @@ class Modal extends React.Component {
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
-            <button className="btn btn-link" onClick={this.closeModal}>
+            <button className="btn btn-link">
               Cancel
             </button>
           </div>
@@ -56,13 +47,8 @@ class Modal extends React.Component {
     );
   }
 }
-// FIXME: Modal is too generic, should be something else
-const mapState = state => ({
-  modal: state.ui.modal,
-  tasks: state.tasks
-});
 
 export default connect(
-  mapState,
+  null,
   null
 )(Modal);

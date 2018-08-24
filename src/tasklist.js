@@ -32,7 +32,6 @@ const TaskList = props => {
         >
           <button
             className="btn btn-link"
-            onClick={e => props.editTask(tasks[j].key)}
           >
             {tasks[j].name}
           </button>
@@ -97,15 +96,7 @@ const mapState = state => ({
   resources: state.resources
 });
 
-const mapDispatch = dispatch => ({
-  editTask: key =>
-    dispatch({
-      type: "EDIT_TASK",
-      key
-    })
-});
-
 export default connect(
   mapState,
-  mapDispatch
+  null
 )(TaskList);
