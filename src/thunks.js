@@ -13,3 +13,11 @@ export const addResource = () => {
     dispatch({ type: "ADD_RESOURCE" });
   };
 };
+
+export const editTask = (key) => {
+  return dispatch => {
+    dispatch({ type: "MODAL_ACTIVE", active: true, content: "taskForm" });
+
+    dispatch({ type: "EDIT_TASK", key });
+  }
+}

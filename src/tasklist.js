@@ -8,6 +8,8 @@ import Duration from "./duration";
 import Assignees from "./assignees";
 import Progress from "./progress";
 
+import {editTask} from "./thunks"
+
 const TaskList = props => {
   let tasks = sortTasks(props.tasks);
 
@@ -30,7 +32,7 @@ const TaskList = props => {
             overflow: "hidden"
           }}
         >
-          <button className="btn btn-link">{tasks[j].name}</button>
+          <button className="btn btn-link" onClick={(e) => props.editTask(tasks[j].key)}>{tasks[j].name}</button>
           <Duration dates={tasks[j].duration} />
           <Progress data={tasks[j].progress} />
           <Assignees data={listAssignees(tasks[j], props.resources)} />
@@ -94,5 +96,5 @@ const mapState = state => ({
 
 export default connect(
   mapState,
-  null
+  { editTask: (key) => editTask(key) }
 )(TaskList);

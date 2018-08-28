@@ -17,6 +17,9 @@ const tasks = (state = [], action) => {
         editing: true
       };
       return tasks;
+    case "EDIT_TASK":
+      console.log(action)
+      return state;
     default:
       return state;
   }
