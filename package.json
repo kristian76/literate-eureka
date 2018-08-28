@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kristiannissen/literate-eureka#readme",
   "devDependencies": {
+    "@babel/preset-stage-2": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

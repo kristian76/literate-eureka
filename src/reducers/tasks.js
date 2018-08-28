@@ -1,25 +1,26 @@
 /**
  * Tasks Reducer
  */
-const tasks = (state = [], action) => {
+const tasks = (state = {}, action) => {
   switch (action.type) {
     case "RECEIVING_DATA":
       return action.tasks;
     case "ADD_TASK":
-      let tasks = state,
-        key = "t" + nextKey(state);
-      tasks[key] = {
-        name: "",
-        progress: 0,
-        resources: {},
-        duration: { from: "", to: "" },
-        color: "",
-        editing: true
+      let key = "t" + nextKey(state);
+      return {...state,
+        [key]: {
+          name: "",
+          duration: {from: "", to: ""},
+          resources: {},
+          progress: 0,
+          editing: true,
+          color: ""
+        }
       };
-      return tasks;
     case "EDIT_TASK":
-      console.log(action)
-      return state;
+      return {...state,
+        [action.key]: Object.assign({editing: true}, state[action.key])
+      }
     default:
       return state;
   }

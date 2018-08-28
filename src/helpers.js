@@ -11,4 +11,7 @@ String.prototype.t = function(locale = "en-US") {
   return trans[locale][str] || str;
 };
 
+const getLocaleOrDefault = (locale = "en-US") =>
+  ["en-US"].includes(navigator.language) ? navigator.language : locale;
+
 module.export = String;

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import TaskForm from "./taskform";
-import ResourceForm from "./resourceform";
+import TaskForm from "./forms/taskform";
+import ResourceForm from "./forms/resourceform";
 
 class Modal extends React.Component {
   constructor(props) {
