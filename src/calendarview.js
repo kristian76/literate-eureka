@@ -2,17 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 
 import TaskList from "./tasklist";
-
+// List of day names
+// FIXME: Should be translatable
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-// TODO: Add color to weekends
 const CalendarView = props => {
   let dates = findStartAndEndDates(props.tasks),
     days = dateRange(dates[0], dates[dates.length - 1]),
     range = days.map((date, i) => (
       <div
         key={i}
-        className={`column col-2 ${isWeekend(date) ? "weekend" : "weekday"}`}
+        className={`column col-2 ${isWeekend(date) ? "weekend" : "weekday"} ${
+          isToday(date) ? "is-today" : ""
+        }`}
         style={{ height: 45 }}
       >
         {weekDays[days[i].getDay()]}
@@ -33,19 +35,21 @@ const CalendarView = props => {
     </div>
   );
 };
-
+// Format date based on locale
+// FIXME: Should go into helper library. Locale shouldn't be hardcoded
 const dateFormat = date =>
   new Date(Date.parse(date)).toLocaleDateString("en-US", {
     day: "2-digit",
     month: "2-digit"
   });
-
+// Helper function to add days to date
+// FIXME: Should go to the helper library
 Date.prototype.addDays = function(days) {
   let date = new Date(this.valueOf());
   date.setDate(date.getDate() + days);
   return date;
 };
-
+// Create a range of dates between start and end date
 const dateRange = (startDate, endDate) => {
   let dates = [];
   /** FIXME: This should be delt with by React lifecycle, checking for undefined
@@ -61,9 +65,13 @@ const dateRange = (startDate, endDate) => {
 
   return dates;
 };
-
+// Check if day is Sun or Sat
 const isWeekend = date => [0, 6].includes(date.getDay());
-
+// Check if date is equal to today's date
+const isToday = date => {
+  return new Date().getDate() === date.getDate();
+};
+// Sort tasks by dates
 const findStartAndEndDates = tasks => {
   let dates = [];
 
