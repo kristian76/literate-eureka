@@ -7,10 +7,11 @@ const tasks = (state = {}, action) => {
       return action.tasks;
     case "ADD_TASK":
       let key = "t" + nextKey(state);
-      return {...state,
+      return {
+        ...state,
         [key]: {
           name: "",
-          duration: {from: "", to: ""},
+          duration: { from: "", to: "" },
           resources: {},
           progress: 0,
           editing: true,
@@ -18,9 +19,10 @@ const tasks = (state = {}, action) => {
         }
       };
     case "EDIT_TASK":
-      return {...state,
-        [action.key]: Object.assign({editing: true}, state[action.key])
-      }
+      return {
+        ...state,
+        [action.key]: Object.assign({ editing: true }, state[action.key])
+      };
     default:
       return state;
   }
