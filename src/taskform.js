@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class TaskForm extends Component {
   render() {
-    return <form>Form</form>;
+    return <form>TaskForm</form>;
   }
 }
 

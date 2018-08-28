@@ -8,6 +8,11 @@ const modal = (state = {}, action) => {
         active: action.active,
         content: action.content
       };
+    case "MODAL_INACTIVE":
+      return {
+        active: false,
+        content: null
+      };
     default:
       return state;
   }

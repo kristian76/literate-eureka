@@ -9,6 +9,13 @@ class Modal extends React.Component {
     super(props);
 
     this.modalRef = React.createRef();
+
+    this.state = {
+      taskForm: TaskForm,
+      resourceForm: ResourceForm
+    };
+
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentDidUpdate() {
@@ -17,6 +24,15 @@ class Modal extends React.Component {
     } else {
       this.modalRef.current.classList.remove("active");
     }
+  }
+
+  componentFactory() {
+    let Component = this.state[this.props.content || "taskForm"];
+    return <Component />;
+  }
+
+  handleCancel() {
+    this.props.closeModal();
   }
 
   render() {
@@ -32,13 +48,13 @@ class Modal extends React.Component {
             <div className="modal-title h5">Modal title</div>
           </div>
           <div className="modal-body">
-            <div className="content">
-              <TaskForm />
-            </div>
+            <div className="content">{this.componentFactory()}</div>
           </div>
           <div className="modal-footer">
             <button className="btn btn-primary">Save</button>
-            <button className="btn btn-link">Cancel</button>
+            <button className="btn btn-link" onClick={this.handleCancel}>
+              Cancel
+            </button>
           </div>
         </div>
       </div>
@@ -48,5 +64,5 @@ class Modal extends React.Component {
 
 export default connect(
   state => ({ active: state.modal.active, content: state.modal.content }),
-  null
+  dispatch => ({ closeModal: () => dispatch({ type: "MODAL_INACTIVE" }) })
 )(Modal);
