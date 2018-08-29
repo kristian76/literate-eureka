@@ -6,10 +6,10 @@ const tasks = (state = {}, action) => {
     case "RECEIVING_DATA":
       return action.tasks;
     case "ADD_TASK":
-      let key = "t" + nextKey(state);
+      let nK = "t" + nextKey(state);
       return {
         ...state,
-        [key]: {
+        [nK]: {
           name: "",
           duration: { from: "", to: "" },
           resources: {},

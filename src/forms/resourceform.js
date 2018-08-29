@@ -15,7 +15,6 @@ class ResourceForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.resources);
     for (let key in this.props.resources) {
       if (
         this.props.resources[key].hasOwnProperty("editing") &&

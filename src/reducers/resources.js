@@ -8,15 +8,29 @@ const resources = (state = {}, action) => {
     case "RECEIVING_RESOURCES":
       return action.resources;
     case "EDIT_RESOURCE":
+      // FIXME: not the best way to handle this
+      let key = Object.keys(state)
+        .filter(key => state[key].hasOwnProperty("editing"))
+        .shift();
+      if (key) {
+        delete state[key].editing;
+      }
       return {
         ...state,
         [action.key]: Object.assign({ editing: true }, state[action.key])
       };
     case "ADD_RESOURCE":
-      let key = "r" + nextKey(state);
+      // FIXME: not the best way to handle this
+      key = Object.keys(state)
+        .filter(key => state[key].hasOwnProperty("editing"))
+        .shift();
+      if (key) {
+        delete state[key].editing;
+      }
+      let nK = "r" + nextKey(state);
       return {
         ...state,
-        [key]: {
+        [nK]: {
           name: "",
           editing: true
         }
