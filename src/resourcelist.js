@@ -14,7 +14,8 @@ const ResouceList = props => {
             style={{ height: `calc(120px * ${countTasks(props.tasks, key)}` }}
           >
             <AvatarTile
-              data={props.resources[key]}
+              name={props.resources[key].name}
+              key={key}
               taskCount={countTasks(props.tasks, key)}
             />
           </div>

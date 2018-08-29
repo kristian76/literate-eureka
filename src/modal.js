@@ -12,7 +12,8 @@ class Modal extends React.Component {
 
     this.state = {
       taskForm: TaskForm,
-      resourceForm: ResourceForm
+      resourceForm: ResourceForm,
+      title: ""
     };
 
     this.handleCancel = this.handleCancel.bind(this);
@@ -40,12 +41,7 @@ class Modal extends React.Component {
       <div className="modal" ref={this.modalRef}>
         <div className="modal-container">
           <div className="modal-header">
-            <a
-              href="#close"
-              className="btn btn-clear float-right"
-              aria-label="Close"
-            />
-            <div className="modal-title h5">Modal title</div>
+            <div className="modal-title h5">{this.state.title}</div>
           </div>
           <div className="modal-body">
             <div className="content">{this.componentFactory()}</div>
