@@ -8,4 +8,7 @@ class TaskForm extends Component {
   }
 }
 
-export default TaskForm;
+export default connect(state => ({
+  tasks: state.tasks,
+  resources: state.resources
+}))(TaskForm);

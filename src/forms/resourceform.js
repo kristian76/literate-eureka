@@ -7,17 +7,21 @@ class ResourceForm extends Component {
     super(props);
 
     this.state = { name: "", key: "" };
-    this.changeValue = this.changeValue.bind(this)
+    this.changeValue = this.changeValue.bind(this);
   }
 
   changeValue(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   componentDidMount() {
+    console.log(this.props.resources);
     for (let key in this.props.resources) {
-      if (this.props.resources[key].hasOwnProperty('editing') && this.props.resources[key].editing === true) {
-        this.setState({name: this.props.resources[key].name, key: key})
+      if (
+        this.props.resources[key].hasOwnProperty("editing") &&
+        this.props.resources[key].editing === true
+      ) {
+        this.setState({ name: this.props.resources[key].name, key: key });
       }
     }
   }

@@ -12,7 +12,24 @@ const resources = (state = {}, action) => {
         ...state,
         [action.key]: Object.assign({ editing: true }, state[action.key])
       };
+    case "ADD_RESOURCE":
+      let key = "r" + nextKey(state);
+      return {
+        ...state,
+        [key]: {
+          name: "",
+          editing: true
+        }
+      };
   }
 };
+
+const nextKey = doc =>
+  parseInt(
+    Object.keys(doc)
+      .sort()
+      .pop()
+      .replace(/[^\d]/g, "")
+  ) + 1;
 
 export default resources;
