@@ -11,7 +11,10 @@ const AvatarTile = props => (
     </div>
     <div className="tile-content">
       <div className="tile-title">
-        <button className="btn btn-link" onClick={e => props.editResource()}>
+        <button
+          className="btn btn-link"
+          onClick={e => props.editResource(props.id)}
+        >
           {props.name}
         </button>
       </div>
@@ -30,5 +33,5 @@ const avatarLetter = name =>
 
 export default connect(
   null,
-  { editResource }
+  { editResource: key => editResource(key) }
 )(AvatarTile);

@@ -6,8 +6,22 @@ class ResourceForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: "" };
+    this.state = { name: "", key: "" };
+    this.changeValue = this.changeValue.bind(this)
   }
+
+  changeValue(e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  componentDidMount() {
+    for (let key in this.props.resources) {
+      if (this.props.resources[key].hasOwnProperty('editing') && this.props.resources[key].editing === true) {
+        this.setState({name: this.props.resources[key].name, key: key})
+      }
+    }
+  }
+
   render() {
     return (
       <form>
@@ -17,9 +31,12 @@ class ResourceForm extends Component {
           </label>
           <input
             className="form-input"
+            name="name"
             type="text"
             id="name-field"
             placeholder="Name"
+            value={this.state.name}
+            onChange={this.changeValue}
           />
         </div>
       </form>
@@ -27,4 +44,6 @@ class ResourceForm extends Component {
   }
 }
 
-export default ResourceForm;
+export default connect(state => ({
+  resources: state.resources
+}))(ResourceForm);

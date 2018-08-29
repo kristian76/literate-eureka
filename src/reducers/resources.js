@@ -7,6 +7,11 @@ const resources = (state = {}, action) => {
       return state;
     case "RECEIVING_RESOURCES":
       return action.resources;
+    case "EDIT_RESOURCE":
+      return {
+        ...state,
+        [action.key]: Object.assign({ editing: true }, state[action.key])
+      };
   }
 };
 

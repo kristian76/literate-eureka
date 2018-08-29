@@ -15,7 +15,7 @@ const ResouceList = props => {
           >
             <AvatarTile
               name={props.resources[key].name}
-              key={key}
+              id={key}
               taskCount={countTasks(props.tasks, key)}
             />
           </div>

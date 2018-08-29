@@ -26,6 +26,6 @@ export const editResource = key => {
   return dispatch => {
     dispatch({ type: "MODAL_ACTIVE", active: true, content: "resourceForm" });
 
-    dispatch({ type: "EDIT_RESOURCE", key: key });
+    dispatch({ type: "EDIT_RESOURCE", key });
   };
 };
