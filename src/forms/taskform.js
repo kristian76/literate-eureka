@@ -4,27 +4,27 @@ import { connect } from "react-redux";
 
 class TaskForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       name: "",
-      duration: {from: "", to: ""},
+      duration: { from: "", to: "" },
       resources: {},
       progress: 0,
       color: ""
-    }
+    };
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     for (let key in this.props.tasks) {
-      if (this.props.tasks[key].hasOwnProperty('editing') && this.props.tasks[key].editing === true) {
+      if (this.props.tasks[key].hasOwnProperty("editing")) {
         console.log(this.props.tasks[key])
       }
     }
   }
 
   render() {
-    return <form>TaskForm</form>;
+    return <form>TaskForm {this.state.name}</form>;
   }
 }
 

@@ -19,6 +19,12 @@ const tasks = (state = {}, action) => {
         }
       };
     case "EDIT_TASK":
+      let key = Object.keys(state)
+        .filter(key => state[key].hasOwnProperty("editing"))
+        .shift();
+      if (key) {
+        delete state[key].editing;
+      }
       return {
         ...state,
         [action.key]: Object.assign({ editing: true }, state[action.key])
