@@ -15,8 +15,7 @@ class TaskForm extends Component {
     };
   }
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   render() {
     return <form>TaskForm {this.state.name}</form>;

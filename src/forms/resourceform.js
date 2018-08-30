@@ -6,7 +6,7 @@ class ResourceForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: "", key: "" };
+    this.state = { name: "", id: null };
     this.changeValue = this.changeValue.bind(this);
   }
 
@@ -15,9 +15,16 @@ class ResourceForm extends Component {
   }
 
   componentDidMount() {
+    if (this.state.id !== this.props.id) {
+      this.setState({
+        name: this.props.resources[this.props.id].name,
+        id: this.props.id
+      });
+    }
   }
 
   render() {
+    console.log(this.state);
     return (
       <form>
         <div className="form-group">

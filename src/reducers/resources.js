@@ -9,6 +9,7 @@ const resources = (state = {}, action) => {
     case "RECEIVING_RESOURCES":
       return action.resources;
     case "EDIT_RESOURCE":
+      /*
       // FIXME: not the best way to handle this
       let key = Object.keys(state)
         .filter(key => state[key].hasOwnProperty("editing"))
@@ -20,7 +21,10 @@ const resources = (state = {}, action) => {
         ...state,
         [action.key]: Object.assign({ editing: true }, state[action.key])
       };
+      */
+      return state;
     case "ADD_RESOURCE":
+      /*
       // FIXME: not the best way to handle this
       key = Object.keys(state)
         .filter(key => state[key].hasOwnProperty("editing"))
@@ -36,6 +40,8 @@ const resources = (state = {}, action) => {
           editing: true
         }
       };
+      */
+      return state;
   }
 };
 

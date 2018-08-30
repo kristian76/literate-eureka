@@ -29,7 +29,7 @@ class Modal extends React.Component {
 
   componentFactory() {
     let Component = this.state[this.props.content || "taskForm"];
-    return <Component />;
+    return <Component id={this.props.id} />;
   }
 
   handleCancel() {
@@ -59,6 +59,10 @@ class Modal extends React.Component {
 }
 
 export default connect(
-  state => ({ active: state.modal.active, content: state.modal.content }),
+  state => ({
+    active: state.modal.active,
+    content: state.modal.content,
+    id: state.modal.key
+  }),
   dispatch => ({ closeModal: () => dispatch({ type: "MODAL_INACTIVE" }) })
 )(Modal);
