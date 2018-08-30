@@ -25,20 +25,20 @@ export const addResource = () => {
       type: "MODAL_ACTIVE",
       active: true,
       content: "resourceForm",
-      key: null
+      id: null
     });
 
     dispatch({ type: "ADD_RESOURCE" });
   };
 };
 
-export const editResource = key => {
+export const editResource = id => {
   return dispatch => {
     dispatch({
       type: "MODAL_ACTIVE",
       active: true,
       content: "resourceForm",
-      key
+      id
     });
 
     // dispatch({ type: "EDIT_RESOURCE" });

@@ -33,5 +33,5 @@ const avatarLetter = name =>
 
 export default connect(
   null,
-  { editResource: key => editResource(key) }
+  { editResource: id => editResource(id) }
 )(AvatarTile);

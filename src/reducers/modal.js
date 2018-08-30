@@ -7,13 +7,13 @@ const modal = (state = {}, action) => {
       return {
         active: action.active,
         content: action.content,
-        key: action.key
+        id: action.id
       };
     case "MODAL_INACTIVE":
       return {
         active: false,
         content: null,
-        key: null
+        id: null
       };
     default:
       return state;

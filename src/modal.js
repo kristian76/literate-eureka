@@ -62,7 +62,7 @@ export default connect(
   state => ({
     active: state.modal.active,
     content: state.modal.content,
-    id: state.modal.key
+    id: state.modal.id
   }),
   dispatch => ({ closeModal: () => dispatch({ type: "MODAL_INACTIVE" }) })
 )(Modal);
