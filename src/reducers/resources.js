@@ -1,6 +1,7 @@
 /**
  * Resources Reducer
  */
+// FIXME: Change to resource instead of resources
 const resources = (state = {}, action) => {
   switch (action.type) {
     default:

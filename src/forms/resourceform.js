@@ -15,14 +15,6 @@ class ResourceForm extends Component {
   }
 
   componentDidMount() {
-    for (let key in this.props.resources) {
-      if (
-        this.props.resources[key].hasOwnProperty("editing") &&
-        this.props.resources[key].editing === true
-      ) {
-        this.setState({ name: this.props.resources[key].name, key: key });
-      }
-    }
   }
 
   render() {

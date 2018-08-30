@@ -1,6 +1,7 @@
 /**
  * Tasks Reducer
  */
+// FIXME: Change to task instead of tasks
 const tasks = (state = {}, action) => {
   switch (action.type) {
     case "RECEIVING_DATA":

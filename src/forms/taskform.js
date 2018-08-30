@@ -16,11 +16,6 @@ class TaskForm extends Component {
   }
 
   componentDidUpdate() {
-    for (let key in this.props.tasks) {
-      if (this.props.tasks[key].hasOwnProperty("editing")) {
-        console.log(this.props.tasks[key])
-      }
-    }
   }
 
   render() {
