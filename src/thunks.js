@@ -4,18 +4,14 @@ export const addTask = () => {
       type: "MODAL_ACTIVE",
       active: true,
       content: "taskForm",
-      key: null
+      id: null
     });
-
-    dispatch({ type: "ADD_TASK" });
   };
 };
 
-export const editTask = key => {
+export const editTask = id => {
   return dispatch => {
-    dispatch({ type: "MODAL_ACTIVE", active: true, content: "taskForm", key });
-
-    dispatch({ type: "EDIT_TASK" });
+    dispatch({ type: "MODAL_ACTIVE", active: true, content: "taskForm", id });
   };
 };
 
@@ -40,7 +36,5 @@ export const editResource = id => {
       content: "resourceForm",
       id
     });
-
-    // dispatch({ type: "EDIT_RESOURCE" });
   };
 };

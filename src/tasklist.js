@@ -101,5 +101,5 @@ const mapState = state => ({
 
 export default connect(
   mapState,
-  { editTask: key => editTask(key) }
+  { editTask: id => editTask(id) }
 )(TaskList);
