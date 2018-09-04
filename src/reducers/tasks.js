@@ -7,6 +7,12 @@ const tasks = (state = {}, action) => {
     case "FETCHING_TASKS":
       return action.tasks;
     case "ADD_TASK":
+      let key = Object.keys(state)
+        .filter(key => state[key].hasOwnProperty("editing"))
+        .shift();
+      if (key) {
+        delete state[key].editing;
+      }
       let nK = "t" + nextKey(state);
       return {
         ...state,
@@ -20,7 +26,7 @@ const tasks = (state = {}, action) => {
         }
       };
     case "EDIT_TASK":
-      let key = Object.keys(state)
+      key = Object.keys(state)
         .filter(key => state[key].hasOwnProperty("editing"))
         .shift();
       if (key) {

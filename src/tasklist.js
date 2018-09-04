@@ -89,7 +89,8 @@ const listAssignees = (task, resources) => {
   return Object.keys(task.resources).map(key => {
     return {
       name: resources[key].name,
-      role: task.resources[key].role
+      role: task.resources[key].role,
+      allocation: task.resources[key].allocation
     };
   });
 };

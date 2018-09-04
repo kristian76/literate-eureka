@@ -7,6 +7,6 @@ const Assignees = props => (
 );
 
 const flattenList = data =>
-  data.map(obj => `${obj.role}: ${obj.name}`).join(", ");
+  data.map(obj => `${obj.name}: ${obj.allocation}%`).join(", ");
 
 export default Assignees;

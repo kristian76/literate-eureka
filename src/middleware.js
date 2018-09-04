@@ -1,3 +1,6 @@
+/**
+ * DEPRECATED!
+ */
 const middleware = store => next => action => {
   /*
   if (action.type === "FETCH_TASKS") {

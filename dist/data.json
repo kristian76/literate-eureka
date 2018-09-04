@@ -10,13 +10,16 @@
             "progress": 20,
             "resources": {
                 "r1": {
-                    "role": "Project Manager"
+                    "role": "Project Manager",
+                    "allocation": 70
                 },
                 "r2": {
-                    "role": "Project Member"
+                    "role": "Project Member",
+                    "allocation": 30
                 },
                 "r3": {
-                    "role": "Stakeholder"
+                    "role": "Stakeholder",
+                    "allocation": 10
                 }
             }
         },
@@ -30,15 +33,17 @@
             "progress": 90,
             "resources": {
                 "r1": {
-                    "role": "Project Manager"
+                    "role": "Project Manager",
+                    "allocation": 30
                 },
                 "r2": {
-                    "role": "Project Member"
+                    "role": "Project Member",
+                    "allocation": 30
                 }
             }
         },
         "t3": {
-            "name": "Task no 2",
+            "name": "Task no 3",
             "duration": {
                 "from": "08/23/2018",
                 "to": "08/24/2018"
@@ -47,10 +52,12 @@
             "progress": 90,
             "resources": {
                 "r1": {
-                    "role": "Project Manager"
+                    "role": "Project Manager",
+                    "allocation": 10
                 },
                 "r2": {
-                    "role": "Project Member"
+                    "role": "Project Member",
+                    "allocation": 40
                 }
             }
         }
