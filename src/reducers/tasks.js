@@ -4,7 +4,7 @@
 // FIXME: Change to task instead of tasks
 const tasks = (state = {}, action) => {
   switch (action.type) {
-    case "RECEIVING_DATA":
+    case "FETCHING_TASKS":
       return action.tasks;
     case "ADD_TASK":
       let nK = "t" + nextKey(state);

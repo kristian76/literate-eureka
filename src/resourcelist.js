@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import AvatarTile from "./avatartile";
 
+import { fetchData } from "./thunks";
+
 const ResouceList = props => {
   return (
     <div className="columns">

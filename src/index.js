@@ -15,7 +15,7 @@ if ("serviceWorker" in navigator) {
 
 import { render } from "react-dom";
 import React from "react";
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 
 /**
  * Import appstore
@@ -29,8 +29,16 @@ import Header from "./header";
 import CalendarView from "./calendarview";
 import Modal from "./modal";
 
+import { fetchData } from "./thunks";
+
 const AppShell = props => {
-  store.dispatch({ type: "FETCH_TASKS" });
+  props.fetchData();
+
+  let css = {
+    overflowX: "scroll",
+    overflowY: "hidden",
+    whiteSpace: "nowrap"
+  };
   return [
     <Header key="1" />,
     <main className="container" key="2">
@@ -38,7 +46,7 @@ const AppShell = props => {
         <div className="column col-4">
           <ResouceList />
         </div>
-        <div className="column col-8">
+        <div className="column col-8" style={css}>
           <CalendarView />
         </div>
       </div>
@@ -48,9 +56,14 @@ const AppShell = props => {
   ];
 };
 
+const App = connect(
+  null,
+  { fetchData }
+)(AppShell);
+
 render(
   <Provider store={store}>
-    <AppShell />
+    <App />
   </Provider>,
   document.getElementById("root")
 );

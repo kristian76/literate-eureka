@@ -1,4 +1,5 @@
 const middleware = store => next => action => {
+  /*
   if (action.type === "FETCH_TASKS") {
     fetch("/dist/data.json")
       .then(response => response.json())
@@ -9,9 +10,10 @@ const middleware = store => next => action => {
         })
       )
       .catch(e => console.log(e));
-    /** Ugly hack **/
+    
     store.dispatch({ type: "FETCH_RESOURCES" });
   }
+  */
   if (action.type === "FETCH_RESOURCES") {
     fetch("/dist/data.json")
       .then(response => response.json())

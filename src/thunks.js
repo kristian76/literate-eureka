@@ -1,3 +1,17 @@
+import axios from "axios";
+
+export const fetchData = () => {
+  return dispatch => {
+    axios
+      .get("/dist/data.json")
+      .then(resp => resp.data)
+      .then(data => {
+        dispatch({ type: "FETCHING_TASKS", tasks: data.tasks });
+        dispatch({ type: "FETCHING_RESOURCES", resources: data.resources });
+      });
+  };
+};
+
 export const addTask = () => {
   return dispatch => {
     dispatch({

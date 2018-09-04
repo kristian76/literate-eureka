@@ -6,7 +6,7 @@ const resources = (state = {}, action) => {
   switch (action.type) {
     default:
       return state;
-    case "RECEIVING_RESOURCES":
+    case "FETCHING_RESOURCES":
       return action.resources;
     case "EDIT_RESOURCE":
       /*
