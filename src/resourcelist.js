@@ -17,7 +17,6 @@ const ResouceList = props => {
               name={props.resources[key].name}
               id={key}
               taskCount={countTasks(props.tasks, key)}
-              allocation={calculateAllocationPercentage(props.tasks, key)}
             />
           </div>
         ))}
@@ -25,16 +24,16 @@ const ResouceList = props => {
     </div>
   );
 };
-
+// Not in use
 const calculateAllocationPercentage = (tasks, res) => {
-  let aP = 0
+  let aP = 0;
   for (let key in tasks) {
     if (Object.keys(tasks[key].resources).includes(res)) {
-      aP = aP + tasks[key].resources[res].allocation
+      aP = aP + tasks[key].resources[res].allocation;
     }
   }
   return aP;
-}
+};
 
 const countTasks = (tasks, res) =>
   Object.keys(tasks).filter(

@@ -11,7 +11,7 @@
             "resources": {
                 "r1": {
                     "role": "Project Manager",
-                    "allocation": 70
+                    "allocation": 40
                 },
                 "r2": {
                     "role": "Project Member",
@@ -46,7 +46,7 @@
             "name": "Task no 3",
             "duration": {
                 "from": "08/23/2018",
-                "to": "08/24/2018"
+                "to": "08/25/2018"
             },
             "color": "",
             "progress": 90,

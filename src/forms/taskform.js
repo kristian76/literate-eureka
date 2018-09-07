@@ -81,7 +81,7 @@ class TaskForm extends Component {
                 </label>
               </div>
             </div>
-            <div className="column col-2">(focus %, role)</div>
+            <div className="column col-2">(allocation %)</div>
           </div>
         ))}
         <div className="columns">

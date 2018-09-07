@@ -19,23 +19,23 @@ const AvatarTile = props => (
         </button>
       </div>
       <div className="tile-subtitle text-gray">
-        {props.taskCount} {"tasks".t()} - <span className={`label ${allocationLabel(props.allocation)}`}>{props.allocation}% booked</span>
+        {props.taskCount} {"tasks".t()}
       </div>
     </div>
   </div>
 );
-
+// Not in use
 const allocationLabel = percentage => {
   if (percentage < 50) {
-    return "label-success"
+    return "label-success";
   }
   if (percentage >= 50 && percentage <= 70) {
-    return "label-warning"
+    return "label-warning";
   }
   if (percentage > 70) {
-    return "label-error"
+    return "label-error";
   }
-}
+};
 
 const avatarLetter = name =>
   name
