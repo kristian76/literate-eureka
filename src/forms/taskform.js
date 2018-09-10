@@ -58,7 +58,7 @@ class TaskForm extends Component {
         </div>
         <div className="form-group">
           <label className="form-label" htmlFor="field-progress">
-            Progress
+            Progress ({this.state.progress}%)
           </label>
           <input
             className="slider"
@@ -73,7 +73,7 @@ class TaskForm extends Component {
         {Object.keys(this.props.resources).map((key, i) => (
           <div className="columns" key={i}>
             <div className="column col-6">{this.props.resources[key].name}</div>
-            <div className="column col-4">
+            <div className="column col-2">
               <div className="form-group">
                 <label className="form-switch">
                   <input type="checkbox" />
@@ -81,7 +81,9 @@ class TaskForm extends Component {
                 </label>
               </div>
             </div>
-            <div className="column col-2">(allocation %)</div>
+            <div className="column col-4">
+              Allocation
+            </div>
           </div>
         ))}
         <div className="columns">
@@ -95,6 +97,8 @@ class TaskForm extends Component {
                 className="form-input"
                 placeholder="Duration from"
                 id="field-from"
+                value={this.state.duration.from}
+                onChange={this.changeValue}
               />
             </div>
           </div>
@@ -108,6 +112,8 @@ class TaskForm extends Component {
                 className="form-input"
                 placeholder="Duration to"
                 id="field-to"
+                value={this.state.duration.to}
+                onChange={this.changeValue}
               />
             </div>
           </div>
