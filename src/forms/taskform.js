@@ -19,6 +19,11 @@ class TaskForm extends Component {
   }
 
   changeValue(e) {
+    if (["from", "to"].includes(e.target.name)) {
+        let duration = this.state.duration;
+            duration[e.target.name] = e.target.value;
+        this.setState({duration: duration})
+    }
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -58,7 +63,8 @@ class TaskForm extends Component {
         </div>
         <div className="form-group">
           <label className="form-label" htmlFor="field-progress">
-            Progress ({this.state.progress}%)
+            Progress ({this.state.progress}
+            %)
           </label>
           <input
             className="slider"
@@ -81,9 +87,7 @@ class TaskForm extends Component {
                 </label>
               </div>
             </div>
-            <div className="column col-4">
-              Allocation
-            </div>
+            <div className="column col-4">Allocation</div>
           </div>
         ))}
         <div className="columns">
@@ -97,6 +101,7 @@ class TaskForm extends Component {
                 className="form-input"
                 placeholder="Duration from"
                 id="field-from"
+                name="from"
                 value={this.state.duration.from}
                 onChange={this.changeValue}
               />
@@ -109,6 +114,7 @@ class TaskForm extends Component {
               </label>
               <input
                 type="text"
+                name="to"
                 className="form-input"
                 placeholder="Duration to"
                 id="field-to"
