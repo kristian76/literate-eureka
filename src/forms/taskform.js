@@ -19,12 +19,14 @@ class TaskForm extends Component {
   }
 
   changeValue(e) {
+    console.log(e);
     if (["from", "to"].includes(e.target.name)) {
-        let duration = this.state.duration;
-            duration[e.target.name] = e.target.value;
-        this.setState({duration: duration})
+      let duration = this.state.duration;
+      duration[e.target.name] = e.target.value;
+      this.setState({ duration: duration });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
     }
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   componentDidUpdate() {
@@ -82,12 +84,16 @@ class TaskForm extends Component {
             <div className="column col-2">
               <div className="form-group">
                 <label className="form-switch">
-                  <input type="checkbox" />
+                  {this.state.resources.hasOwnProperty(key) ? (
+                    <input type="checkbox" name={key} checked={true} />
+                  ) : (
+                    <input type="checkbox" name={key} />
+                  )}
                   <i className="form-icon" />
                 </label>
               </div>
             </div>
-            <div className="column col-4">Allocation</div>
+            <div className="column col-4">here</div>
           </div>
         ))}
         <div className="columns">

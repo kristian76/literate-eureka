@@ -1,9 +1,11 @@
 import axios from "axios";
-
+/**
+ * Fetching data
+ */
 export const fetchData = () => {
   return dispatch => {
     axios
-      .get("/dist/data.json")
+      .get("/data.json")
       .then(resp => resp.data)
       .then(data => {
         dispatch({ type: "FETCHING_TASKS", tasks: data.tasks });
