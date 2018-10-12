@@ -43,10 +43,10 @@ const AppShell = props => {
     <Header key="1" />,
     <main className="container" key="2">
       <div className="columns">
-        <div className="column col-4">
+        <div className="column col-2">
           <ResouceList />
         </div>
-        <div className="column col-8" style={css}>
+        <div className="column col-10" style={css}>
           <CalendarView />
         </div>
       </div>
