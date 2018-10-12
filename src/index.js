@@ -32,7 +32,7 @@ import Modal from "./modal";
 import { fetchData } from "./thunks";
 
 const AppShell = props => {
-  props.fetchData();
+  props.fetchData(props.source);
 
   let css = {
     overflowX: "scroll",
@@ -61,9 +61,11 @@ const App = connect(
   { fetchData }
 )(AppShell);
 
+const ROOT = document.getElementById("root");
+
 render(
   <Provider store={store}>
-    <App />
+    <App source={ROOT.getAttribute('data-source')} />
   </Provider>,
-  document.getElementById("root")
+  ROOT
 );

@@ -2,10 +2,10 @@ import axios from "axios";
 /**
  * Fetching data
  */
-export const fetchData = () => {
+export const fetchData = (src) => {
   return dispatch => {
     axios
-      .get("/data.json")
+      .get(src)
       .then(resp => resp.data)
       .then(data => {
         dispatch({ type: "FETCHING_TASKS", tasks: data.tasks });
